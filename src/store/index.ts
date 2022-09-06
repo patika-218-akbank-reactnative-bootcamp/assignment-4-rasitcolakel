@@ -1,9 +1,12 @@
 import {configureStore} from '@reduxjs/toolkit';
+import {TypedUseSelectorHook, useSelector} from 'react-redux';
+import {themeSlice} from './slices/theme';
 import {userSlice} from './slices/user';
 // ...
 const store = configureStore({
   reducer: {
     user: userSlice.reducer,
+    theme: themeSlice.reducer,
   },
   // devtools is enabled by default in development mode
   devTools: true,
@@ -20,4 +23,5 @@ const store = configureStore({
 });
 export type RootState = ReturnType<typeof store.getState>;
 
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 export default store;
