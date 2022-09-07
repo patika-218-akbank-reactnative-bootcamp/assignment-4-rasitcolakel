@@ -13,6 +13,7 @@ import {setLoading} from '../../store/slices/theme';
 import axios from 'axios';
 import {config} from '../../../App';
 import {setUser} from '../../store/slices/user';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type Props = NativeStackScreenProps<AuthStackParamsList, 'SignUp'>;
 
@@ -45,7 +46,9 @@ const SignUp = ({navigation}: Props) => {
         username,
         password,
       });
-      // I sleep here to show the loading indicator
+      // store the user in the async storage
+      await AsyncStorage.setItem('user', JSON.stringify(response.data));
+      dispatch(setUser(response.data));
       dispatch(setUser(response.data));
     } catch (error: any) {
       Alert.alert('Error', error.response.data);
@@ -84,12 +87,14 @@ const SignUp = ({navigation}: Props) => {
           secureTextEntry={true}
           value={values.password}
           onChangeText={text => handleChange('password', text)}
+          textContentType={'password'}
         />
         <CustomInput
           placeholder="Confirm Password"
           secureTextEntry={true}
           value={values.confirmPassword}
           onChangeText={text => handleChange('confirmPassword', text)}
+          textContentType={'password'}
         />
 
         <CustomButton

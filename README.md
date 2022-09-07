@@ -143,3 +143,74 @@ export default function Navigation() {
 ## React Navigation Debugger
 
 ![Screenshot](/screenshots/react-navigation.png)
+
+# Installing React Native Async Storage
+
+```bash
+npm install @react-native-async-storage/async-storage
+# then update pods
+cd ios && pod install
+# or
+npx pod-install
+```
+
+# Installing axios for HTTP requests
+
+Axios is a promise-based HTTP client for the browser and node.js. It is used to make HTTP requests to fetch or save data.
+
+```bash
+npm install axios
+```
+
+## Usage of axios
+
+```typescript
+import axios from 'axios';
+
+const api = axios.post(
+  'https://api.themoviedb.org/3/authentication/token/new',
+  {
+    api_key: 'YOUR_API_KEY',
+  },
+);
+```
+
+# Installing React Native Vector Icons
+
+```bash
+npm install react-native-vector-icons
+```
+
+## Importing Fonts on iOS
+
+To import fonts we need to add the following to the Info.plist file:
+
+```xml
+<key>UIAppFonts</key>
+<array>
+  <string>AntDesign.ttf</string>
+  <string>Entypo.ttf</string>
+  <string>EvilIcons.ttf</string>
+  <string>Feather.ttf</string>
+  <string>FontAwesome.ttf</string>
+  <string>FontAwesome5_Brands.ttf</string>
+  <string>FontAwesome5_Regular.ttf</string>
+  <string>FontAwesome5_Solid.ttf</string>
+  <string>Foundation.ttf</string>
+  <string>Ionicons.ttf</string>
+  <string>MaterialIcons.ttf</string>
+  <string>MaterialCommunityIcons.ttf</string>
+  <string>SimpleLineIcons.ttf</string>
+  <string>Octicons.ttf</string>
+  <string>Zocial.ttf</string>
+  <string>Fontisto.ttf</string>
+</array>
+```
+
+## Importing Fonts on Android
+
+To import fonts we need to add the following to the **android/app/build.gradle:**
+
+```java
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+```

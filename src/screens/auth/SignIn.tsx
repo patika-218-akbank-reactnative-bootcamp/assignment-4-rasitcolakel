@@ -13,6 +13,8 @@ import axios from 'axios';
 import {config} from '../../../App';
 import {setLoading} from '../../store/slices/theme';
 import {setUser} from '../../store/slices/user';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 type Props = NativeStackScreenProps<AuthStackParamsList, 'SignIn'>;
 
 const SignIn = ({navigation}: Props) => {
@@ -33,7 +35,8 @@ const SignIn = ({navigation}: Props) => {
     try {
       dispatch(setLoading(true));
       const response = await axios.post(config.API_URL + 'login', values);
-      // I sleep here to show the loading indicator
+      // store the user in the async storage
+      await AsyncStorage.setItem('user', JSON.stringify(response.data));
       dispatch(setUser(response.data));
     } catch (error: any) {
       Alert.alert('Error', error.response.data);

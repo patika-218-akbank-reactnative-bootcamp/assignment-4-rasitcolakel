@@ -5,6 +5,12 @@
       "password": "$2a$10$/upYwlDIfeU09WoeTEkTx.tcsYZBrJXxMVb5BSG8wB.Yez6JN5jTC",
       "username": "rasit",
       "id": 1
+    },
+    {
+      "email": "rasit2@mail.com",
+      "password": "$2a$10$n0n7D/hW6h.Iq4EhIVZqzOibeYUBLkMcjbm4BP2/dyx9a9uvgW9rm",
+      "username": "rasit",
+      "id": 2
     }
   ]
 }

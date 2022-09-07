@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect} from 'react';
 import {
   DarkTheme,
@@ -10,11 +11,13 @@ import AuthStack from './auth';
 import {useFlipper} from '@react-navigation/devtools';
 import {StatusBar, useColorScheme} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {setTheme} from '../store/slices/theme';
+import {setLoading, setTheme} from '../store/slices/theme';
 import {ThemeType} from '../assets/darkTheme';
 import {useAppSelector} from '../store';
 import LoadingIndicator from '../components/LoadingIndicator';
 import AppStack from './app';
+import {setUser} from '../store/slices/user';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type Props = {};
 
@@ -28,9 +31,24 @@ export default function Navigation({}: Props) {
   const theme = useAppSelector(state => state.theme);
   const {user, accessToken} = useAppSelector(state => state.user);
 
+  // this will be called when the app starts and set the user if stored in async storage
+  const checkUser = async () => {
+    const _user = await AsyncStorage.getItem('user');
+    if (_user) {
+      dispatch(setUser(JSON.parse(_user)));
+    }
+  };
+
   useEffect(() => {
-    // set the default theme from useColorScheme
-    dispatch(setTheme('light'));
+    try {
+      dispatch(setLoading(true));
+      dispatch(setTheme(colorScheme));
+      checkUser();
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dispatch(setLoading(false));
+    }
   }, [colorScheme, dispatch]);
 
   return (
