@@ -6,6 +6,18 @@
 
 This project presents a mobile app with the movie db.
 
+# Important
+
+You need to create config.ts file under the src/assets folder with the following content:
+
+```typescript
+export const config = {
+  API_URL: 'http://192.168.1.6:3000/', // change this to your local IP
+  MOVIE_API_URL: 'https://api.themoviedb.org/3/',
+  API_KEY: '---', // change this to your API key
+};
+```
+
 ## Installing React Navigation
 
 To install React Navigation, run the following command in the terminal:
