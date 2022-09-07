@@ -1,5 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {MovieResponse} from '@src/types/APITypes';
+import {MoviesResponse} from '@src/types/APITypes';
+
+export type MovieType = 'topRated' | 'popular' | 'upcoming' | 'nowPlaying';
 
 const initialMovies = {
   results: [],
@@ -8,10 +10,10 @@ const initialMovies = {
   total_results: 0,
 };
 export type MovieState = {
-  topRated: MovieResponse;
-  popular: MovieResponse;
-  upcoming: MovieResponse;
-  nowPlaying: MovieResponse;
+  topRated: MoviesResponse;
+  popular: MoviesResponse;
+  upcoming: MoviesResponse;
+  nowPlaying: MoviesResponse;
 };
 
 export type Movie = {
@@ -45,8 +47,8 @@ export const moviesSlice = createSlice({
     setMovies: (
       state,
       action: PayloadAction<{
-        type: 'topRated' | 'popular' | 'upcoming' | 'nowPlaying';
-        data: MovieResponse;
+        type: MovieType;
+        data: MoviesResponse;
       }>,
     ) => {
       const {type, data} = action.payload;
@@ -55,14 +57,9 @@ export const moviesSlice = createSlice({
       state[type].total_pages = data.total_pages;
       state[type].total_results = data.total_results;
     },
-    setPopular: (state, action: PayloadAction<MovieResponse>) => {
-      state.popular = action.payload;
-    },
-    setUpcoming: (state, action: PayloadAction<MovieResponse>) => {
-      state.upcoming = action.payload;
-    },
-    setNowPlaying: (state, action: PayloadAction<MovieResponse>) => {
-      state.nowPlaying = action.payload;
-    },
   },
 });
+
+export const {setMovies} = moviesSlice.actions;
+
+export default moviesSlice.reducer;

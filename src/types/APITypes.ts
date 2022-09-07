@@ -1,20 +1,18 @@
-import {Genre} from '../store/slices/genres';
-import {Movie} from '../store/slices/movies';
+import {Genre} from '@src/store/slices/genres';
+import {Movie} from '@src/store/slices/movies';
 
 export type BaseParams = {
-  params: {
-    api_key: string;
-    language: string;
-  };
+  api_key?: string;
+  language?: string;
+  query?: string;
+  page?: number;
 };
-
-export type GenresRequest = BaseParams & {};
 
 export type GenresResponse = {
   genres: Genre[];
 };
 
-export type MovieResponse = {
+export type MoviesResponse = {
   page: number;
   results: Movie[];
   total_pages: number;

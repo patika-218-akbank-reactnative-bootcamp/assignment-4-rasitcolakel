@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export type GenresState = {
-  genres: Genre[];
+  data: Genre[];
 };
 
 export type Genre = {
@@ -10,7 +10,7 @@ export type Genre = {
 };
 
 const initialState: GenresState = {
-  genres: [],
+  data: [],
 };
 
 export const genresSlice = createSlice({
@@ -18,7 +18,11 @@ export const genresSlice = createSlice({
   initialState,
   reducers: {
     setGenres: (state, action: PayloadAction<Genre[]>) => {
-      state.genres = action.payload;
+      state.data = action.payload;
     },
   },
 });
+
+export const {setGenres} = genresSlice.actions;
+
+export default genresSlice.reducer;

@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {ColorSchemeName} from 'react-native';
-import {darkTheme, ThemeType} from '../../assets/darkTheme';
-import {lightTheme} from '../../assets/lightTheme';
+import {darkTheme, ThemeType} from '@src/assets/darkTheme';
+import {lightTheme} from '@src/assets/lightTheme';
 
 // This is the type of the theme object that can be LIGHT or DARK
 type uiType = {

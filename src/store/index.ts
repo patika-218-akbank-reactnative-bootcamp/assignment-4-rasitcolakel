@@ -1,5 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {TypedUseSelectorHook, useSelector} from 'react-redux';
+import {genresSlice} from './slices/genres';
+import {moviesSlice} from './slices/movies';
 import {themeSlice} from './slices/theme';
 import {userSlice} from './slices/user';
 // ...
@@ -7,6 +9,8 @@ const store = configureStore({
   reducer: {
     user: userSlice.reducer,
     theme: themeSlice.reducer,
+    movies: moviesSlice.reducer,
+    genres: genresSlice.reducer,
   },
   // devtools is enabled by default in development mode
   devTools: true,
