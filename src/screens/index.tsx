@@ -14,6 +14,7 @@ import {setTheme} from '../store/slices/theme';
 import {ThemeType} from '../assets/darkTheme';
 import {useAppSelector} from '../store';
 import LoadingIndicator from '../components/LoadingIndicator';
+import AppStack from './app';
 
 type Props = {};
 
@@ -25,6 +26,7 @@ export default function Navigation({}: Props) {
   const colorScheme = useColorScheme();
   const dispatch = useDispatch();
   const theme = useAppSelector(state => state.theme);
+  const {user, accessToken} = useAppSelector(state => state.user);
 
   useEffect(() => {
     // set the default theme from useColorScheme
@@ -37,7 +39,7 @@ export default function Navigation({}: Props) {
         barStyle={theme.name === 'dark' ? 'light-content' : 'dark-content'}
       />
       <LoadingIndicator />
-      <AuthStack />
+      {accessToken && user ? <AppStack /> : <AuthStack />}
     </NavigationContainer>
   );
 }

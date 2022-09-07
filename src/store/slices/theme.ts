@@ -27,9 +27,12 @@ export const themeSlice = createSlice({
       state.colors = newTheme.colors;
       state.name = newTheme.name;
     },
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.loading = action.payload;
+    },
   },
 });
 
-export const {setTheme, toogleTheme} = themeSlice.actions;
+export const {setTheme, toogleTheme, setLoading} = themeSlice.actions;
 
 export default themeSlice.reducer;

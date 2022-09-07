@@ -1,4 +1,4 @@
-import {View} from 'react-native';
+import {Alert, View} from 'react-native';
 import React from 'react';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamsList} from '.';
@@ -8,10 +8,15 @@ import {useAppSelector} from '../../store';
 import CustomInput from '../../components/CustomInput';
 import CustomText from '../../components/CustomText';
 import CustomKeyboardAvoidingView from '../../components/CustomKeyboardAvoidingView';
-
+import {useDispatch} from 'react-redux';
+import axios from 'axios';
+import {config} from '../../../App';
+import {setLoading} from '../../store/slices/theme';
+import {setUser} from '../../store/slices/user';
 type Props = NativeStackScreenProps<AuthStackParamsList, 'SignIn'>;
 
 const SignIn = ({navigation}: Props) => {
+  const dispatch = useDispatch();
   const {primary, backgroundColor} = useAppSelector(
     state => state.theme.colors,
   );
@@ -22,6 +27,19 @@ const SignIn = ({navigation}: Props) => {
 
   const handleChange = (name: string, value: string) => {
     setValues(prev => ({...prev, [name]: value}));
+  };
+
+  const handleLogIn = async () => {
+    try {
+      dispatch(setLoading(true));
+      const response = await axios.post(config.API_URL + 'login', values);
+      // I sleep here to show the loading indicator
+      dispatch(setUser(response.data));
+    } catch (error: any) {
+      Alert.alert('Error', error.response.data);
+    } finally {
+      dispatch(setLoading(false));
+    }
   };
 
   return (
@@ -37,6 +55,9 @@ const SignIn = ({navigation}: Props) => {
           placeholder="Email"
           value={values.email}
           onChangeText={text => handleChange('email', text)}
+          textContentType="emailAddress"
+          keyboardType="email-address"
+          autoCapitalize="none"
         />
         <CustomInput
           placeholder="Password"
@@ -47,7 +68,7 @@ const SignIn = ({navigation}: Props) => {
 
         <CustomButton
           title="Log In"
-          onPress={() => {}}
+          onPress={handleLogIn}
           variant="primary"
           fullWidth
           disabled={Object.values(values).some(value => !value)}

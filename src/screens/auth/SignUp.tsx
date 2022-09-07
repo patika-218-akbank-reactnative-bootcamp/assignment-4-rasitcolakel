@@ -8,10 +8,16 @@ import {useAppSelector} from '../../store';
 import CustomInput from '../../components/CustomInput';
 import CustomText from '../../components/CustomText';
 import CustomKeyboardAvoidingView from '../../components/CustomKeyboardAvoidingView';
+import {useDispatch} from 'react-redux';
+import {setLoading} from '../../store/slices/theme';
+import axios from 'axios';
+import {config} from '../../../App';
+import {setUser} from '../../store/slices/user';
 
 type Props = NativeStackScreenProps<AuthStackParamsList, 'SignUp'>;
 
 const SignUp = ({navigation}: Props) => {
+  const dispatch = useDispatch();
   const {primary, backgroundColor} = useAppSelector(
     state => state.theme.colors,
   );
@@ -26,10 +32,25 @@ const SignUp = ({navigation}: Props) => {
     setValues(prev => ({...prev, [name]: value}));
   };
 
-  const handleSignUp = () => {
-    if (values.password !== values.confirmPassword) {
-      Alert.alert('Error', 'Passwords do not match');
-      return;
+  const handleSignUp = async () => {
+    try {
+      const {email, username, password, confirmPassword} = values;
+      if (password !== confirmPassword) {
+        Alert.alert('Error', 'Passwords do not match');
+        return;
+      }
+      dispatch(setLoading(true));
+      const response = await axios.post(config.API_URL + 'register', {
+        email,
+        username,
+        password,
+      });
+      // I sleep here to show the loading indicator
+      dispatch(setUser(response.data));
+    } catch (error: any) {
+      Alert.alert('Error', error.response.data);
+    } finally {
+      dispatch(setLoading(false));
     }
   };
 
@@ -46,11 +67,17 @@ const SignUp = ({navigation}: Props) => {
           placeholder="Email"
           value={values.email}
           onChangeText={text => handleChange('email', text)}
+          textContentType="emailAddress"
+          keyboardType="email-address"
+          autoCapitalize="none"
         />
         <CustomInput
           placeholder="Username"
           value={values.username}
           onChangeText={text => handleChange('username', text)}
+          textContentType="username"
+          keyboardType="default"
+          autoCapitalize="none"
         />
         <CustomInput
           placeholder="Password"
