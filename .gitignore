@@ -62,5 +62,3 @@ buck-out/
 # Ruby / CocoaPods
 /ios/Pods/
 /vendor/bundle/
-src/assets/config.ts
-src/assets/config.ts
