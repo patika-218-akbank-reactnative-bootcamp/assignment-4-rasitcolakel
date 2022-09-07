@@ -7,6 +7,7 @@ export const HomeStyles = StyleSheet.create({
   },
   scrollContainer: {
     minHeight: 55,
+    marginHorizontal: 10,
   },
   scrollItem: {
     paddingHorizontal: 20,

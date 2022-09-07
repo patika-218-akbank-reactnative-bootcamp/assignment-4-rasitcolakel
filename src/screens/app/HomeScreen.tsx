@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {View, Text, ScrollView, FlatList} from 'react-native';
+import {View, ScrollView, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {BottomTabParamList} from '@src/screens/app';
@@ -65,7 +65,10 @@ const HomeScreen = (props: Props) => {
 
   return (
     <View style={styles.container}>
-      <ScrollView style={styles.scrollContainer} horizontal={true}>
+      <ScrollView
+        style={styles.scrollContainer}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}>
         {MovieButtons.map(item => (
           <CustomButton
             title={item.title}
@@ -86,8 +89,6 @@ const HomeScreen = (props: Props) => {
         maxToRenderPerBatch={10}
         // performance improvement
         initialNumToRender={5}
-        windowSize={5}
-        onEndReachedThreshold={0.5}
         onEndReached={() => {
           getMovies(selectedMovieType, {
             page: movies[selectedMovieType].page + 1,
