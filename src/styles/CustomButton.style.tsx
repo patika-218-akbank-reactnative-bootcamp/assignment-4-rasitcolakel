@@ -5,10 +5,9 @@ export const CustomButtonStyles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderRadius: 10,
-    marginVertical: 5,
+    marginVertical: 7,
   },
   title: {
     fontSize: 14,
-    fontWeight: 'bold',
   },
 });

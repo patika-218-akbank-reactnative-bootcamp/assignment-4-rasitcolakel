@@ -13,6 +13,7 @@ import {useDispatch} from 'react-redux';
 import {setTheme} from '../store/slices/theme';
 import {ThemeType} from '../assets/darkTheme';
 import {useAppSelector} from '../store';
+import LoadingIndicator from '../components/LoadingIndicator';
 
 type Props = {};
 
@@ -27,7 +28,7 @@ export default function Navigation({}: Props) {
 
   useEffect(() => {
     // set the default theme from useColorScheme
-    dispatch(setTheme('dark'));
+    dispatch(setTheme('light'));
   }, [colorScheme, dispatch]);
 
   return (
@@ -35,6 +36,7 @@ export default function Navigation({}: Props) {
       <StatusBar
         barStyle={theme.name === 'dark' ? 'light-content' : 'dark-content'}
       />
+      <LoadingIndicator />
       <AuthStack />
     </NavigationContainer>
   );

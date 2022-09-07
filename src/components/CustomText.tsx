@@ -5,11 +5,13 @@ import {useAppSelector} from '../store';
 type Props = TextProps & {
   title: string;
   variant?: 'default' | 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'large' | 'xlarge' | number;
+  bold?: boolean;
 };
 
 const CustomText = (props: Props) => {
   const {colors} = useAppSelector(state => state.theme);
-  let styles = [];
+  let styles: any[] = [];
   if (props.variant === 'primary') {
     styles.push({color: colors.primary});
   } else if (props.variant === 'secondary') {
@@ -17,8 +19,29 @@ const CustomText = (props: Props) => {
   } else {
     styles.push({color: colors.text});
   }
+  if (typeof props.size === 'number') {
+    styles.push({fontSize: props.size});
+  } else if (props.size === 'small') {
+    styles.push({fontSize: 12});
+  } else if (props.size === 'medium') {
+    styles.push({fontSize: 16});
+  } else if (props.size === 'large') {
+    styles.push({fontSize: 18});
+  } else if (props.size === 'xlarge') {
+    styles.push({fontSize: 20});
+  } else {
+    styles.push({fontSize: 14});
+  }
+  if (props.bold) {
+    styles.push({fontWeight: 'bold'});
+  }
+
+  if (props.style) {
+    styles.push(props.style);
+  }
+
   return (
-    <Text style={styles} {...props}>
+    <Text {...props} style={styles}>
       {props.title}
     </Text>
   );
