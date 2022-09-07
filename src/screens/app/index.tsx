@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import MovieDetailScreen from './MovieDetailScreen';
-import BottomTabs from './BottomTabs';
+import MovieDetailScreen from '@src/screens/app/MovieDetailScreen';
+import BottomTabs from '@src/screens/app/BottomTabs';
 import {NavigatorScreenParams} from '@react-navigation/native';
 
 export type AppStackParamsList = {

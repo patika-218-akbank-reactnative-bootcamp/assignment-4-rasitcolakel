@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import {useAppSelector} from '../store';
+import {useAppSelector} from '@src/store';
 
 type Props = {
   children: React.ReactNode;

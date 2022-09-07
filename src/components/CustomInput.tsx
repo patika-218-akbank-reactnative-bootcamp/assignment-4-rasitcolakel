@@ -1,8 +1,8 @@
 import {View, TextInputProps} from 'react-native';
 import React from 'react';
 import {TextInput} from 'react-native-gesture-handler';
-import {CustomInputStyles as styles} from '../styles/CustomInput.style';
-import {useAppSelector} from '../store';
+import {CustomInputStyles as styles} from '@src/styles/CustomInput.style';
+import {useAppSelector} from '@src/store';
 
 type Props = TextInputProps & {};
 

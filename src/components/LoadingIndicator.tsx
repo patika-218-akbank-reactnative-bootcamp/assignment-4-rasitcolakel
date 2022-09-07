@@ -1,6 +1,6 @@
 import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {useAppSelector} from '../store';
+import {useAppSelector} from '@src/store';
 
 const LoadingIndicator = () => {
   const {loading, colors} = useAppSelector(state => state.theme);

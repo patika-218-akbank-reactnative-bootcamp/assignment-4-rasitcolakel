@@ -1,9 +1,9 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {BottomTabParamList} from '.';
-import HomeScreen from './HomeScreen';
-import ProfileStack from './profile';
-import SearchScreen from './SearchScreen';
+import {BottomTabParamList} from '@src/screens/app';
+import HomeScreen from '@src/screens/app/HomeScreen';
+import ProfileStack from '@src/screens/app/profile';
+import SearchScreen from '@src/screens/app/SearchScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const BottomNav = createBottomTabNavigator<BottomTabParamList>();

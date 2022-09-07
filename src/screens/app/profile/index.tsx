@@ -1,9 +1,9 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {ProfileScreenParamsList} from '..';
-import ProfileScreen from './ProfileScreen';
-import SettingsSecreen from './SettingsSecreen';
-import EditProfileScreen from './EditProfileScreen';
+import {ProfileScreenParamsList} from '@src/screens/app';
+import ProfileScreen from '@src/screens/app/profile/ProfileScreen';
+import SettingsSecreen from '@src/screens/app/profile/SettingsSecreen';
+import EditProfileScreen from '@src/screens/app/profile/EditProfileScreen';
 
 const Stack = createStackNavigator<ProfileScreenParamsList>();
 

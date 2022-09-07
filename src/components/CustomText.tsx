@@ -1,6 +1,6 @@
 import {Text, TextProps} from 'react-native';
 import React from 'react';
-import {useAppSelector} from '../store';
+import {useAppSelector} from '@src/store';
 
 type Props = TextProps & {
   title: string;

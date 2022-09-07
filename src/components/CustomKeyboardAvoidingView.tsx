@@ -7,7 +7,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import React from 'react';
-import CustomSafeAreaView from './CustomSafeAreaView';
+import CustomSafeAreaView from '@src/components/CustomSafeAreaView';
 
 type Props = {
   children: React.ReactNode;

@@ -7,16 +7,16 @@ import {
   Theme,
   useNavigationContainerRef,
 } from '@react-navigation/native';
-import AuthStack from './auth';
+import AuthStack from '@src/screens/auth';
 import {useFlipper} from '@react-navigation/devtools';
 import {StatusBar, useColorScheme} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {setLoading, setTheme} from '../store/slices/theme';
-import {ThemeType} from '../assets/darkTheme';
-import {useAppSelector} from '../store';
-import LoadingIndicator from '../components/LoadingIndicator';
-import AppStack from './app';
-import {setUser} from '../store/slices/user';
+import {setLoading, setTheme} from '@src/store/slices/theme';
+import {ThemeType} from '@src/assets/darkTheme';
+import {useAppSelector} from '@src/store';
+import LoadingIndicator from '@src/components/LoadingIndicator';
+import AppStack from '@src/screens/app';
+import {setUser} from '@src/store/slices/user';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type Props = {};

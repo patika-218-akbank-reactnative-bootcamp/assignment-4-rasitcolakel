@@ -1,19 +1,19 @@
 import {Alert, View} from 'react-native';
 import React from 'react';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {AuthStackParamsList} from '.';
-import CustomButton from '../../components/CustomButton';
-import {AuthStyle as styles} from '../../styles/Auth.style';
-import {useAppSelector} from '../../store';
-import CustomInput from '../../components/CustomInput';
-import CustomText from '../../components/CustomText';
-import CustomKeyboardAvoidingView from '../../components/CustomKeyboardAvoidingView';
+import {AuthStackParamsList} from '@src/screens/auth/';
+import CustomButton from '@src/components/CustomButton';
+import {AuthStyle as styles} from '@src/styles/Auth.style';
+import {useAppSelector} from '@src/store';
+import CustomInput from '@src/components/CustomInput';
+import CustomText from '@src/components/CustomText';
+import CustomKeyboardAvoidingView from '@src/components/CustomKeyboardAvoidingView';
 import {useDispatch} from 'react-redux';
-import {setLoading} from '../../store/slices/theme';
+import {setLoading} from '@src/store/slices/theme';
 import axios from 'axios';
-import {config} from '../../../App';
-import {setUser} from '../../store/slices/user';
+import {setUser} from '@src/store/slices/user';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {config} from '@src/assets/config';
 
 type Props = NativeStackScreenProps<AuthStackParamsList, 'SignUp'>;
 

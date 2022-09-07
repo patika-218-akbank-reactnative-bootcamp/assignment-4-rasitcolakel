@@ -214,3 +214,64 @@ To import fonts we need to add the following to the **android/app/build.gradle:*
 ```java
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 ```
+
+# How to install absolute paths
+
+```bash
+npm install --save-dev babel-plugin-module-resolver
+```
+
+Then add the following to the **babel.config.js:**
+
+```javascript
+module.exports = {
+  presets: ['module:metro-react-native-babel-preset'], // existing
+  // add the following
+  plugins: [
+    [
+      'module-resolver',
+      {
+        root: ['.'],
+        alias: {
+          '@src': './src',
+        },
+      },
+    ],
+  ],
+};
+```
+
+Also add the following to the **tsconfig.json:**
+
+```json
+{
+  "compilerOptions": {
+    // ... existing
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*", "./App.tsx"]
+}
+```
+
+If the app gives the following error:
+
+```bash
+error: Error: Unable to resolve module
+```
+
+It means that app is not able to find the module. To fix this, we need to reset caches of the app while starting
+
+```bash
+yarn start --reset-cache
+```
+
+# How to start json-server
+
+I added json-server-auth to the project to simulate a backend server. To start the server, run the following command:
+
+```bash
+cd server && json-server --host <YOUR_LOCAL_IP> db.json --watch -m ./node_modules/json-server-auth
+```
