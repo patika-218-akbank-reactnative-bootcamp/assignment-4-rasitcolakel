@@ -2,7 +2,7 @@
 import {View, ScrollView, FlatList} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {BottomTabParamList} from '@src/screens/app';
+import {AppStackParamsList} from '@src/screens/app';
 import {useDispatch} from 'react-redux';
 import {MovieRequest} from '@src/assets/api';
 import {MovieType, setMovies} from '@src/store/slices/movies';
@@ -12,7 +12,7 @@ import {setLoading} from '@src/store/slices/theme';
 import {useAppSelector} from '@src/store';
 import {BaseParams} from '@src/types/APITypes';
 import MovieCard from '@src/components/MovieCard';
-type Props = NativeStackScreenProps<BottomTabParamList, 'Home'>;
+type Props = NativeStackScreenProps<AppStackParamsList, 'BottomTabs'>;
 
 type MovieButtonsType = {
   title: string;
@@ -38,7 +38,6 @@ const MovieButtons: MovieButtonsType[] = [
 ];
 
 const HomeScreen = (props: Props) => {
-  console.log(props);
   const [selectedMovieType, setSelectedMovieType] =
     useState<MovieType>('popular');
   const dispatch = useDispatch();
@@ -84,7 +83,14 @@ const HomeScreen = (props: Props) => {
       </ScrollView>
       <FlatList
         data={moviesData}
-        renderItem={({item}) => <MovieCard movie={item} />}
+        renderItem={({item}) => (
+          <MovieCard
+            movie={item}
+            onPress={() =>
+              props.navigation.navigate('MovieDetail', {movie: item})
+            }
+          />
+        )}
         keyExtractor={item => selectedMovieType + '-' + item.id.toString()}
         maxToRenderPerBatch={10}
         // performance improvement

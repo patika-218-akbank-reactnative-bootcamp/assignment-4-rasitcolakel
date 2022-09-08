@@ -42,7 +42,7 @@ export default function Navigation({}: Props) {
   useEffect(() => {
     try {
       dispatch(setLoading(true));
-      dispatch(setTheme(colorScheme));
+      dispatch(setTheme('dark'));
       checkUser();
     } catch (error) {
       console.log(error);

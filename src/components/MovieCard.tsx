@@ -1,4 +1,4 @@
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Movie} from '@src/store/slices/movies';
 import {MovieCardStyles as styles} from '@src/styles/MovieCard.style';
@@ -9,6 +9,7 @@ import CustomText from './CustomText';
 import {hexToRGB} from '@src/assets/utils';
 type Props = {
   movie: Movie;
+  onPress: () => any;
 };
 
 type GenreProps = {
@@ -40,10 +41,10 @@ const GenreComponent = ({id}: GenreProps) => {
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/';
 
-const MovieCard = ({movie}: Props) => {
+const MovieCard = ({movie, onPress}: Props) => {
   const {colors} = useAppSelector(state => state.theme);
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View
         style={[
           styles.imageContainer,
@@ -81,7 +82,7 @@ const MovieCard = ({movie}: Props) => {
           ))}
         </ScrollView>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

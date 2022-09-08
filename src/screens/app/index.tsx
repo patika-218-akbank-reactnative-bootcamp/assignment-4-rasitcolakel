@@ -8,9 +8,10 @@ import {useDispatch} from 'react-redux';
 import {setGenres} from '@src/store/slices/genres';
 import {GenreRequest} from '@src/assets/api';
 import {setLoading} from '@src/store/slices/theme';
+import {Movie} from '@src/store/slices/movies';
 
 export type AppStackParamsList = {
-  MovieDetail: undefined;
+  MovieDetail: undefined | {movie: Movie};
   BottomTabs: NavigatorScreenParams<BottomTabParamList>;
 };
 
