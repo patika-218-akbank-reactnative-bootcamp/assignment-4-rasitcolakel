@@ -6,37 +6,10 @@ import FastImage from 'react-native-fast-image';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useAppSelector} from '@src/store';
 import CustomText from './CustomText';
-import {hexToRGB} from '@src/assets/utils';
+import {GenreComponent} from './GenreComponent';
 type Props = {
   movie: Movie;
   onPress: () => any;
-};
-
-type GenreProps = {
-  id: number;
-};
-
-const GenreComponent = ({id}: GenreProps) => {
-  const {colors} = useAppSelector(state => state.theme);
-  const genre = useAppSelector(state =>
-    state.genres.data.find(g => g.id === id),
-  );
-  if (!genre) {
-    return null;
-  }
-
-  return (
-    <View
-      style={[
-        styles.genreStyle,
-        {backgroundColor: hexToRGB(colors.primary, 0.3)},
-      ]}>
-      <CustomText
-        style={[styles.genreText, {color: colors.primary}]}
-        title={genre.name}
-      />
-    </View>
-  );
 };
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/';

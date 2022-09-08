@@ -7,7 +7,7 @@ function camelToUnderscore(key: string): string {
   return result.split(' ').join('_').toLowerCase();
 }
 
-export const MovieRequest = async (
+export const movieRequest = async (
   baseUrl: string,
   params?: BaseParams,
 ): Promise<MoviesResponse> => {
@@ -24,9 +24,22 @@ export const MovieRequest = async (
   return request.data;
 };
 
-export const GenreRequest = async () => {
+export const genreRequest = async () => {
   const request = await axios.get<GenresResponse>(
     config.MOVIE_API_URL + 'genre/movie/list',
+    {
+      params: {
+        api_key: config.API_KEY,
+        language: 'en-US',
+      },
+    },
+  );
+  return request.data;
+};
+
+export const getCasts = async (id: number) => {
+  const request = await axios.get(
+    config.MOVIE_API_URL + 'movie/' + id + '/credits',
     {
       params: {
         api_key: config.API_KEY,

@@ -41,6 +41,7 @@ export const MovieCardStyles = StyleSheet.create({
   },
   genreScrollStyle: {
     maxHeight: 40,
+    zIndex: 5,
   },
   genreContainer: {
     flexDirection: 'row',

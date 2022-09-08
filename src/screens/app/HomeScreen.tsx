@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AppStackParamsList} from '@src/screens/app';
 import {useDispatch} from 'react-redux';
-import {MovieRequest} from '@src/assets/api';
+import {movieRequest} from '@src/assets/api';
 import {MovieType, setMovies} from '@src/store/slices/movies';
 import {HomeStyles as styles} from '@src/styles/Home.style';
 import CustomButton from '@src/components/CustomButton';
@@ -45,7 +45,7 @@ const HomeScreen = (props: Props) => {
   const getMovies = async (type: MovieType, params?: BaseParams) => {
     try {
       dispatch(setLoading(true));
-      const data = await MovieRequest(type, params);
+      const data = await movieRequest(type, params);
       dispatch(setMovies({type, data}));
     } catch (error: any) {
       console.log(error);

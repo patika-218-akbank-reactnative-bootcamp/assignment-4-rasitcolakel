@@ -6,7 +6,7 @@ import BottomTabs from '@src/screens/app/BottomTabs';
 import {NavigatorScreenParams} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
 import {setGenres} from '@src/store/slices/genres';
-import {GenreRequest} from '@src/assets/api';
+import {genreRequest} from '@src/assets/api';
 import {setLoading} from '@src/store/slices/theme';
 import {Movie} from '@src/store/slices/movies';
 
@@ -34,7 +34,7 @@ const AppStack = () => {
   const getGenres = async () => {
     try {
       dispatch(setLoading(true));
-      const data = await GenreRequest();
+      const data = await genreRequest();
       dispatch(setGenres(data.genres));
     } catch (error: any) {
       console.log(error);
