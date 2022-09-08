@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {View, Animated, Dimensions} from 'react-native';
+import {View, Animated, Dimensions, TouchableOpacity} from 'react-native';
 import React, {useEffect} from 'react';
 import FastImage from 'react-native-fast-image';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -9,6 +9,7 @@ import CustomText from '@src/components/CustomText';
 import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import {Cast} from '@src/store/slices/movies';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
 import {getCasts} from '@src/assets/api';
 import {styles} from '@src/styles/MovieDetail.style';
 import {GenreComponent} from '@src/components/GenreComponent';
@@ -53,6 +54,21 @@ const MovieDetailScreen = ({route, navigation}: Props) => {
     extrapolate: 'clamp',
   });
 
+  const animatedHeaderTitleOpacity = animatedHeaderValue.interpolate({
+    inputRange: [
+      0,
+      (headerMaxHeight - HEADER_MIN) / 2,
+      headerMaxHeight - HEADER_MIN,
+    ],
+    outputRange: [0, 0.5, 1],
+    extrapolate: 'clamp',
+  });
+  const animatedHeaderTitleColor = animatedHeaderValue.interpolate({
+    inputRange: [0, 100, headerMaxHeight - HEADER_MIN - 100],
+    outputRange: [colors.white, colors.white, colors.primary],
+    extrapolate: 'clamp',
+  });
+
   const renderHeader = () => (
     <View>
       <CustomText title={movie.title} size={25} style={styles.title} />
@@ -94,15 +110,27 @@ const MovieDetailScreen = ({route, navigation}: Props) => {
 
   return (
     <View style={styles.container}>
-      <AntDesign
-        name="left"
-        size={38}
-        color={colors.primary}
-        style={styles.goBack}
-        onPress={() => {
-          navigation.goBack();
-        }}
-      />
+      <View style={[styles.goBackContainer]}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => {
+            navigation.goBack();
+          }}>
+          <Feather name="arrow-left" size={30} color={colors.primary} />
+        </TouchableOpacity>
+        <Animated.Text
+          style={[
+            styles.headerTitle,
+            {
+              opacity: animatedHeaderTitleOpacity,
+              color: animatedHeaderTitleColor,
+            },
+          ]}>
+          {movie.title}
+        </Animated.Text>
+        <Feather name="more-horizontal" size={30} color={colors.primary} />
+      </View>
+
       <View style={[styles.header]}>
         <AnimatedFastImage
           style={[

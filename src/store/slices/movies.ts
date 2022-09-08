@@ -1,7 +1,12 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {MoviesResponse} from '@src/types/APITypes';
 
-export type MovieType = 'topRated' | 'popular' | 'upcoming' | 'nowPlaying';
+export type MovieType =
+  | 'topRated'
+  | 'popular'
+  | 'upcoming'
+  | 'nowPlaying'
+  | 'searchedMovies';
 
 const initialMovies = {
   results: [],
@@ -14,6 +19,7 @@ export type MovieState = {
   popular: MoviesResponse;
   upcoming: MoviesResponse;
   nowPlaying: MoviesResponse;
+  searchedMovies: MoviesResponse;
 };
 
 export type Movie = {
@@ -53,6 +59,7 @@ const initialState: MovieState = {
   popular: initialMovies,
   upcoming: initialMovies,
   nowPlaying: initialMovies,
+  searchedMovies: initialMovies,
 };
 
 export const moviesSlice = createSlice({
@@ -64,10 +71,15 @@ export const moviesSlice = createSlice({
       action: PayloadAction<{
         type: MovieType;
         data: MoviesResponse;
+        isClear?: boolean;
       }>,
     ) => {
       const {type, data} = action.payload;
-      state[type].results = [...state[type].results, ...data.results];
+      if (action.payload.isClear) {
+        state[type] = data;
+      } else {
+        state[type].results = [...state[type].results, ...data.results];
+      }
       state[type].page = data.page;
       state[type].total_pages = data.total_pages;
       state[type].total_results = data.total_results;

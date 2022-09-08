@@ -96,9 +96,14 @@ const HomeScreen = (props: Props) => {
         // performance improvement
         initialNumToRender={5}
         onEndReached={() => {
-          getMovies(selectedMovieType, {
-            page: movies[selectedMovieType].page + 1,
-          });
+          if (
+            movies[selectedMovieType].page <
+            movies[selectedMovieType].total_pages
+          ) {
+            getMovies(selectedMovieType, {
+              page: movies[selectedMovieType].page + 1,
+            });
+          }
         }}
       />
     </View>

@@ -49,3 +49,19 @@ export const getCasts = async (id: number) => {
   );
   return request.data;
 };
+
+export const searchMovieRequest = async (
+  params?: BaseParams,
+): Promise<MoviesResponse> => {
+  const request = await axios.get<MoviesResponse>(
+    config.MOVIE_API_URL + 'search/movie',
+    {
+      params: {
+        ...params,
+        api_key: config.API_KEY,
+        language: 'en-US',
+      },
+    },
+  );
+  return request.data;
+};

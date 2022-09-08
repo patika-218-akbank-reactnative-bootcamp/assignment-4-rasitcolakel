@@ -7,9 +7,10 @@ export const CustomInputStyles = StyleSheet.create({
     borderRadius: 5,
     borderWidth: 1,
     marginVertical: 7,
+    flexDirection: 'row',
   },
   input: {
-    width: '100%',
+    flex: 1,
     fontSize: 14,
     fontWeight: 'bold',
     padding: 10,

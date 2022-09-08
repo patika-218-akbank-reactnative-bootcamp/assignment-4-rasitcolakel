@@ -3,8 +3,12 @@ import React from 'react';
 import {TextInput} from 'react-native-gesture-handler';
 import {CustomInputStyles as styles} from '@src/styles/CustomInput.style';
 import {useAppSelector} from '@src/store';
+import {IconProps} from 'react-native-vector-icons/Icon';
 
-type Props = TextInputProps & {};
+type Props = TextInputProps & {
+  iconComponent?: React.ElementType;
+  iconComponentProps?: IconProps;
+};
 
 const CustomInput = (props: Props) => {
   const [focused, setFocused] = React.useState(false);
@@ -21,6 +25,7 @@ const CustomInput = (props: Props) => {
   if (props.style) {
     inputStyle.push(props.style);
   }
+  const {iconComponent: Icon} = props;
 
   return (
     <View style={containerStyle}>
@@ -32,6 +37,12 @@ const CustomInput = (props: Props) => {
         style={inputStyle}
         {...props}
       />
+      {props.iconComponent && Icon && (
+        <Icon
+          {...props.iconComponentProps}
+          color={focused ? colors.primary : colors.secondaryText}
+        />
+      )}
     </View>
   );
 };

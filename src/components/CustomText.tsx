@@ -2,14 +2,14 @@ import {Text, TextProps} from 'react-native';
 import React from 'react';
 import {useAppSelector} from '@src/store';
 
-type Props = TextProps & {
+export type CustomTextProps = TextProps & {
   title: string;
   variant?: 'default' | 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large' | 'xlarge' | number;
   bold?: boolean;
 };
 
-const CustomText = (props: Props) => {
+const CustomText = (props: CustomTextProps) => {
   const {colors} = useAppSelector(state => state.theme);
   let styles: any[] = [];
   if (props.variant === 'primary') {

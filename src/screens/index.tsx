@@ -40,13 +40,12 @@ export default function Navigation({}: Props) {
   };
 
   // this will be called when the app starts and set the theme if stored in async storage
-
   const checkTheme = async () => {
     const _theme = await AsyncStorage.getItem('theme');
     if (_theme) {
-      dispatch(setTheme(JSON.parse(_theme)));
+      dispatch(setTheme('dark'));
     } else {
-      dispatch(setTheme(colorScheme));
+      dispatch(setTheme('dark'));
     }
   };
 

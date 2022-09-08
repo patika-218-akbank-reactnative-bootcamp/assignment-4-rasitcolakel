@@ -68,10 +68,22 @@ export const styles = StyleSheet.create({
     maxHeight: 40,
     zIndex: 5,
   },
-  goBack: {
+  goBackContainer: {
     position: 'absolute',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     zIndex: 5,
-    top: 50,
-    left: 20,
+    top: 40,
+    left: 0,
+    width: '100%',
+    padding: 10,
+  },
+  headerTitle: {
+    fontSize: 19,
+    flex: 1,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    padding: 10,
   },
 });

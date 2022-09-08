@@ -5,27 +5,34 @@ import {
   ScrollView,
   StyleSheet,
   TouchableWithoutFeedback,
+  View,
 } from 'react-native';
 import React from 'react';
 import CustomSafeAreaView from '@src/components/CustomSafeAreaView';
 
 type Props = {
   children: React.ReactNode;
+  isFlatList?: boolean;
 };
 
-const CustomKeyboardAvoidingView = ({children}: Props) => {
+const CustomKeyboardAvoidingView = ({children, isFlatList}: Props) => {
+  const Container = isFlatList ? View : ScrollView;
+  const containerProps = isFlatList
+    ? {style: styles.scrollContainer}
+    : {contentContainerStyle: styles.scrollContainer};
+
   return (
     <CustomSafeAreaView>
       <KeyboardAvoidingView
         style={[styles.container]}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <ScrollView contentContainerStyle={styles.scrollContainer}>
+        <Container {...containerProps}>
           <TouchableWithoutFeedback
             onPress={Keyboard.dismiss}
             style={styles.container}>
             {children}
           </TouchableWithoutFeedback>
-        </ScrollView>
+        </Container>
       </KeyboardAvoidingView>
     </CustomSafeAreaView>
   );
