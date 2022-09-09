@@ -98,6 +98,7 @@ On the left col of the table presents dark mode and on the right col presents li
         </tr>
     </tbody>
 </table>
+
 ## Installing React Navigation
 
 To install React Navigation, run the following command in the terminal:
@@ -267,7 +268,7 @@ const api = axios.post(
 );
 ```
 
-# Installing React Native Vector Icons
+## Installing React Native Vector Icons
 
 ```bash
 npm install react-native-vector-icons
@@ -307,7 +308,7 @@ To import fonts we need to add the following to the **android/app/build.gradle:*
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 ```
 
-# How to install absolute paths
+# How to install absolute paths
 
 ```bash
 npm install --save-dev babel-plugin-module-resolver
@@ -360,7 +361,7 @@ It means that app is not able to find the module. To fix this, we need to reset 
 yarn start --reset-cache
 ```
 
-# How to start json-server
+# How to start json-server
 
 I added json-server-auth to the project to simulate a backend server. To start the server, run the following command:
 
