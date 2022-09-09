@@ -25,6 +25,8 @@ const SignUp = ({navigation}: Props) => {
   const [values, setValues] = React.useState({
     email: '',
     username: '',
+    firstName: '',
+    lastName: '',
     password: '',
     confirmPassword: '',
   });
@@ -35,7 +37,8 @@ const SignUp = ({navigation}: Props) => {
 
   const handleSignUp = async () => {
     try {
-      const {email, username, password, confirmPassword} = values;
+      const {email, username, password, confirmPassword, firstName, lastName} =
+        values;
       if (password !== confirmPassword) {
         Alert.alert('Error', 'Passwords do not match');
         return;
@@ -45,6 +48,8 @@ const SignUp = ({navigation}: Props) => {
         email,
         username,
         password,
+        firstName,
+        lastName,
       });
       // store the user in the async storage
       await AsyncStorage.setItem('user', JSON.stringify(response.data));
@@ -65,6 +70,16 @@ const SignUp = ({navigation}: Props) => {
           variant="primary"
           size={25}
           style={styles.title}
+        />
+        <CustomInput
+          placeholder="First Name"
+          value={values.firstName}
+          onChangeText={text => handleChange('firstName', text)}
+        />
+        <CustomInput
+          placeholder="Last Name"
+          value={values.lastName}
+          onChangeText={text => handleChange('lastName', text)}
         />
         <CustomInput
           placeholder="Email"

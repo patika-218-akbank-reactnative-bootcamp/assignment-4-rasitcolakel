@@ -2,15 +2,27 @@
   "users": [
     {
       "email": "rasit@mail.com",
-      "password": "$2a$10$/upYwlDIfeU09WoeTEkTx.tcsYZBrJXxMVb5BSG8wB.Yez6JN5jTC",
+      "password": "$2a$10$GL7qF9Bd0CkjR/UIjq5vYex46fWoQR72KNjrsOigDQvCWEia3ZWDi",
       "username": "rasit",
+      "firstName": "Rasit22",
+      "lastName": "Colakel",
       "id": 1
     },
     {
       "email": "rasit2@mail.com",
       "password": "$2a$10$n0n7D/hW6h.Iq4EhIVZqzOibeYUBLkMcjbm4BP2/dyx9a9uvgW9rm",
       "username": "rasit",
-      "id": 2
+      "id": 2,
+      "firstName": "Rasit",
+      "lastName": "Colakel"
+    },
+    {
+      "email": "mail@mail.com",
+      "password": "$2a$10$3FHR1HudESqcVBzteKitJO/.EIbEjFECmYzZvU/MOqwQZtCezqSbe",
+      "username": "rasitc",
+      "firstName": "Raşit",
+      "lastName": "Çolakel",
+      "id": 3
     }
   ]
 }

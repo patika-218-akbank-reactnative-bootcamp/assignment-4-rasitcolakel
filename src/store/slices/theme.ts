@@ -23,7 +23,7 @@ export const themeSlice = createSlice({
     },
     // This is the action that will be dispatched when the theme is changed, payload not required
     toogleTheme: state => {
-      const newTheme = state.name === 'dark' ? darkTheme : lightTheme;
+      const newTheme = state.name === 'dark' ? lightTheme : darkTheme;
       state.colors = newTheme.colors;
       state.name = newTheme.name;
     },

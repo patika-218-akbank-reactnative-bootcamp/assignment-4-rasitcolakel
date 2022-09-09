@@ -43,9 +43,9 @@ export default function Navigation({}: Props) {
   const checkTheme = async () => {
     const _theme = await AsyncStorage.getItem('theme');
     if (_theme) {
-      dispatch(setTheme('dark'));
+      dispatch(setTheme(JSON.parse(_theme)));
     } else {
-      dispatch(setTheme('dark'));
+      dispatch(setTheme(colorScheme));
     }
   };
 

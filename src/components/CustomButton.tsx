@@ -1,5 +1,10 @@
 import React from 'react';
-import {Text, TouchableOpacity, TouchableOpacityProps} from 'react-native';
+import {
+  Text,
+  TextProps,
+  TouchableOpacity,
+  TouchableOpacityProps,
+} from 'react-native';
 import {useAppSelector} from '@src/store';
 import {CustomButtonStyles as styles} from '@src/styles/CustomButton.style';
 
@@ -10,6 +15,7 @@ type Props = TouchableOpacityProps & {
   fullWidth?: boolean;
   size?: 'small' | 'medium' | 'large' | 'xlarge' | number;
   bold?: boolean;
+  textProps?: TextProps;
 };
 
 export default function CustomButton({
@@ -17,6 +23,7 @@ export default function CustomButton({
   onPress,
   variant,
   fullWidth,
+  textProps,
   ...props
 }: Props) {
   const {colors} = useAppSelector(state => state.theme);
@@ -57,6 +64,10 @@ export default function CustomButton({
 
   if (props.style) {
     style.push(props.style);
+  }
+
+  if (textProps?.style) {
+    textStyle.push(textProps.style);
   }
   return (
     <TouchableOpacity style={style} onPress={onPress}>

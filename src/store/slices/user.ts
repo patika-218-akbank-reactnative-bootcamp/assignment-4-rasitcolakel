@@ -6,8 +6,10 @@ export type UserState = {
 };
 export type UserType = {
   id: number;
-  name: string;
   email: string;
+  username: string;
+  firstName: string;
+  lastName: string;
 };
 const initialState: UserState = {
   accessToken: null,
@@ -21,9 +23,21 @@ export const userSlice = createSlice({
       state.user = action.payload.user;
       state.accessToken = action.payload.accessToken;
     },
+    updateUser: (state, action: PayloadAction<UserType>) => {
+      state.user = {
+        ...state.user,
+        ...action.payload,
+      };
+    },
+    logOut: state => {
+      state = {
+        ...initialState,
+      };
+      return state;
+    },
   },
 });
 
-export const {setUser} = userSlice.actions;
+export const {setUser, logOut, updateUser} = userSlice.actions;
 
 export default userSlice.reducer;
