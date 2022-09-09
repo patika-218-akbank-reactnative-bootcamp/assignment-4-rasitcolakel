@@ -26,11 +26,13 @@ export const config = {
 
 # Previews
 
+On the left col of the table presents dark mode and on the right col presents light mode. First previews are GIFs and the last previews are PNGs.
+
 <table>
     <thead>
         <tr>
-            <th width="500px">DARK</th>
-            <th width="500px">LIGHT</th>
+            <th width="300px">DARK</th>
+            <th width="300px">LIGHT</th>
         </tr>
     </thead>
     <tbody>
@@ -39,48 +41,59 @@ export const config = {
             <td>GIF</td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/1.gif" width="500px"></td>
-            <td><img src="./screenshots/light/1.gif" width="500px"></td>
+            <td>
+            <a href="https://github.com/patika-218-akbank-reactnative-bootcamp/assignment-4-rasitcolakel/blob/main/screenshots/dark/1.gif?raw=true" width="300px">
+            SEE PREVIEW
+            </a>
+            <img src="./screenshots/dark/1.gif" width="300px">
+            </td>
+                        <td>
+            <a href="https://github.com/patika-218-akbank-reactnative-bootcamp/assignment-4-rasitcolakel/blob/main/screenshots/dark/1.gif?raw=true" width="300px">
+            SEE PREVIEW
+            </a>
+            <img src="./screenshots/dark/1.gif" width="300px">
+            </td>
+            <td><img src="./screenshots/light/1.gif" width="300px"></td>
         </tr>
         <tr>
             <td>IMAGES</td>
             <td>IMAGES</td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/change-theme.png" width="500px"></td>
-            <td><img src="./screenshots/light/change-theme.png" width="500px"></td>
+            <td><img src="./screenshots/dark/change-theme.png" width="300px"></td>
+            <td><img src="./screenshots/light/change-theme.png" width="300px"></td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/edit-profile.png" width="500px"></td>
-            <td><img src="./screenshots/light/edit-profile.png" width="500px"></td>
+            <td><img src="./screenshots/dark/edit-profile.png" width="300px"></td>
+            <td><img src="./screenshots/light/edit-profile.png" width="300px"></td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/home.png" width="500px"></td>
-            <td><img src="./screenshots/light/home.png" width="500px"></td>
+            <td><img src="./screenshots/dark/home.png" width="300px"></td>
+            <td><img src="./screenshots/light/home.png" width="300px"></td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/login.png" width="500px"></td>
-            <td><img src="./screenshots/light/login.png" width="500px"></td>
+            <td><img src="./screenshots/dark/login.png" width="300px"></td>
+            <td><img src="./screenshots/light/login.png" width="300px"></td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/profile.png" width="500px"></td>
-            <td><img src="./screenshots/light/profile.png" width="500px"></td>
+            <td><img src="./screenshots/dark/profile.png" width="300px"></td>
+            <td><img src="./screenshots/light/profile.png" width="300px"></td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/register.png" width="500px"></td>
-            <td><img src="./screenshots/light/register.png" width="500px"></td>
+            <td><img src="./screenshots/dark/register.png" width="300px"></td>
+            <td><img src="./screenshots/light/register.png" width="300px"></td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/search-1.png" width="500px"></td>
-            <td><img src="./screenshots/light/search-1.png" width="500px"></td>
+            <td><img src="./screenshots/dark/search-1.png" width="300px"></td>
+            <td><img src="./screenshots/light/search-1.png" width="300px"></td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/search-2.png" width="500px"></td>
-            <td><img src="./screenshots/light/search-2.png" width="500px"></td>
+            <td><img src="./screenshots/dark/search-2.png" width="300px"></td>
+            <td><img src="./screenshots/light/search-2.png" width="300px"></td>
         </tr>
         <tr>
-            <td><img src="./screenshots/dark/search-3.png" width="500px"></td>
-            <td><img src="./screenshots/light/search-3.png" width="500px"></td>
+            <td><img src="./screenshots/dark/search-3.png" width="300px"></td>
+            <td><img src="./screenshots/light/search-3.png" width="300px"></td>
         </tr>
     </tbody>
 </table>
