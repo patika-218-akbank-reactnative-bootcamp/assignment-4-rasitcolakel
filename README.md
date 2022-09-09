@@ -2,11 +2,17 @@
 
 # Assignment 4
 
-## **Introduction**
+## Introduction
 
-This project presents a mobile app with the movie db.
+This project presents a mobile app with the movie db. Used **technologies** are:
 
-# Important
+- React Native
+- Redux
+- React Navigation
+- React Native Vector Icons
+- React Native Safe Area Context
+
+## **Important**
 
 You need to create config.ts file under the src/assets folder with the following content:
 
@@ -17,6 +23,67 @@ export const config = {
   API_KEY: '---', // change this to your API key
 };
 ```
+
+# Previews
+
+<table>
+    <thead>
+        <tr>
+            <th width="500px">DARK</th>
+            <th width="500px">LIGHT</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GIF</td>
+            <td>GIF</td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/1.gif" width="500px"></td>
+            <td><img src="./screenshots/light/1.gif" width="500px"></td>
+        </tr>
+        <tr>
+            <td>IMAGES</td>
+            <td>IMAGES</td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/change-theme.png" width="500px"></td>
+            <td><img src="./screenshots/light/change-theme.png" width="500px"></td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/edit-profile.png" width="500px"></td>
+            <td><img src="./screenshots/light/edit-profile.png" width="500px"></td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/home.png" width="500px"></td>
+            <td><img src="./screenshots/light/home.png" width="500px"></td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/login.png" width="500px"></td>
+            <td><img src="./screenshots/light/login.png" width="500px"></td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/profile.png" width="500px"></td>
+            <td><img src="./screenshots/light/profile.png" width="500px"></td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/register.png" width="500px"></td>
+            <td><img src="./screenshots/light/register.png" width="500px"></td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/search-1.png" width="500px"></td>
+            <td><img src="./screenshots/light/search-1.png" width="500px"></td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/search-2.png" width="500px"></td>
+            <td><img src="./screenshots/light/search-2.png" width="500px"></td>
+        </tr>
+        <tr>
+            <td><img src="./screenshots/dark/search-3.png" width="500px"></td>
+            <td><img src="./screenshots/light/search-3.png" width="500px"></td>
+        </tr>
+    </tbody>
+</table>
 
 ## Installing React Navigation
 
