@@ -42,14 +42,14 @@ On the left col of the table presents dark mode and on the right col presents li
         </tr>
         <tr>
             <td>
-                <a href="https://github.com/patika-218-akbank-reactnative-bootcamp/assignment-4-rasitcolakel/blob/main/screenshots/dark/1.gif?raw=true"
+                <a href="https://github.com/patika-218-akbank-reactnative-bootcamp/assignment-4-rasitcolakel/blob/main/screenshots/dark/1.gif"
                     width="300px">
                     SEE PREVIEW
                 </a>
                 <img src="./screenshots/dark/1.gif" width="300px">
             </td>
             <td>
-                <a href="https://github.com/patika-218-akbank-reactnative-bootcamp/assignment-4-rasitcolakel/blob/main/screenshots/dark/1.gif?raw=true"
+                <a href="https://github.com/patika-218-akbank-reactnative-bootcamp/assignment-4-rasitcolakel/blob/main/screenshots/dark/1.gif"
                     width="300px">
                     SEE PREVIEW
                 </a>
