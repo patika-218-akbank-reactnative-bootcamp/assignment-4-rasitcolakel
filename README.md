@@ -155,7 +155,7 @@ npm install react-redux
 npm install @reduxjs/toolkit
 ```
 
-## Redux with Flipper
+## Redux with Flipper
 
 Flipper is a desktop application for debugging mobile apps. It is available for both Android and iOS. It is a great tool for debugging Redux and React Native apps. To install it, follow the instructions on the [Flipper website](https://fbflipper.com/).
 
